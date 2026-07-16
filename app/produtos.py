@@ -1,3 +1,4 @@
+
 def cadastrar_produto(nome, preco, quantidade):    
     return {
         "nome": nome,

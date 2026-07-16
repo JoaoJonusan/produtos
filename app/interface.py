@@ -1,5 +1,5 @@
-import validacoes
-import produtos
+from app import validacoes
+from app import produtos
 
 def exibir_produto(produto):
     print(f"Nome: {produto['nome']}")

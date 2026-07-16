@@ -1,6 +1,6 @@
-import produtos
-import interface
-import arquivos
+from app import produtos
+from app import interface
+from app import arquivos
 
 def iniciar():
     

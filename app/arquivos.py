@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-PASTA_PROJETO = Path(__file__).resolve().parent
+PASTA_PROJETO = Path(__file__).resolve().parent.parent
 PASTA_DADOS = PASTA_PROJETO / "dados"
 ARQUIVO_PRODUTOS = PASTA_DADOS / "produtos.json"
 

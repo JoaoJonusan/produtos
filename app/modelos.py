@@ -25,3 +25,5 @@ class Produto:
 
         self.quantidade -= quantidade
         return True
+    def transformar_json(self):
+        return {"nome":self.nome, "preco": self.preco, "quantidade": self. quantidade}

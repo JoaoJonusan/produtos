@@ -1,6 +1,6 @@
 from app import validacoes
 from app import produtos
-
+from app.modelos import Produto
 def exibir_produto(produto):
     print(f"Nome: {produto['nome']}")
     print(f"Preço: R$ {produto['preco']:.2f}")
@@ -57,7 +57,7 @@ def menu(lista_produto):
             nome = validacoes.obter_nome("Nome do produto: ")
             preco = validacoes.obter_preco("Preço do produto: ")
             quantidade = validacoes.obter_quantidade()
-            produto = produtos.cadastrar_produto(nome, preco, quantidade)
+            produto = Produto(nome, preco, quantidade).transformar_json()
             produtos.adicionar_produto(lista_produto, produto)
             print("Produto cadastrado com sucesso!")
             
@@ -106,5 +106,3 @@ def menu(lista_produto):
             
         elif escolha == 7:
             return
-
-print("teste")

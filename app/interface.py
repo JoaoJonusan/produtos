@@ -57,7 +57,7 @@ def menu(lista_produto):
             nome = validacoes.obter_nome("Nome do produto: ")
             preco = validacoes.obter_preco("Preço do produto: ")
             quantidade = validacoes.obter_quantidade()
-            produto = Produto(nome, preco, quantidade).transformar_json()
+            produto = produtos.cadastrar_produto(nome, preco, quantidade)
             produtos.adicionar_produto(lista_produto, produto)
             print("Produto cadastrado com sucesso!")
             

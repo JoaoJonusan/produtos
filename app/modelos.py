@@ -6,7 +6,7 @@ class Produto:
         self.preco = preco
         self.quantidade = quantidade
     
-    #Getter and Setter
+    # Getter and Setter
     
     @property
     def nome(self):
@@ -25,7 +25,7 @@ class Produto:
     
     @preco.setter
     def preco(self, novo_preco):
-        if novo_preco <= 0:
+        if not self.preco_valido(novo_preco):
             raise ValueError("O preço deve ser maior que zero!")
         self._preco = novo_preco
     
@@ -34,12 +34,12 @@ class Produto:
         return self._quantidade
     
     @quantidade.setter
-    def quantidade(self, quantidade):
-        if quantidade < 0:
+    def quantidade(self, nova_quantidade):
+        if not self.quantidade_valida(nova_quantidade):
             raise ValueError("A quantidade não pode ser negativa!")
-        self._quantidade = quantidade
+        self._quantidade = nova_quantidade
     
-    #metodos
+    # metodos
     
     def calcular_valor_estoque(self):        
         return self.preco * self.quantidade
@@ -60,8 +60,31 @@ class Produto:
     
     def atualizar_preco(self, novo_preco):
         self.preco = novo_preco
+        
+    @classmethod
+    def de_dicionario(cls, dados):
+        return cls(
+            dados["nome"],
+            dados["preco"],
+            dados["quantidade"]
+        )
+        
+    def para_dicionario(self):
+        return {
+            "nome": self.nome,
+            "preco": self.preco,
+            "quantidade": self.quantidade
+        }
+        
+    @staticmethod
+    def preco_valido(valor):
+        return valor > 0
     
-    #Return String format
+    @staticmethod
+    def quantidade_valida(valor):
+        return valor >= 0
+    
+    # Return String format
     def __str__(self):
         return (
             f"Nome: {self.nome} | "

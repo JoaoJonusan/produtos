@@ -11,3 +11,8 @@ class Produto_perecivel(Produto):
             f"{texto_produto} | "
             f"Data de validade: {self.data_validade}"
         )
+
+    def descricao(self):
+            return (
+                f"{self.nome} custa: {self.preco:.2f} e vence dia: {self.data_validade}"
+            )

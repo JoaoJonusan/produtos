@@ -61,6 +61,11 @@ class Produto:
     def atualizar_preco(self, novo_preco):
         self.preco = novo_preco
         
+    def descricao(self):
+        return (
+            f"{self.nome} custa: {self.preco:.2f}"
+        )
+        
     @classmethod
     def de_dicionario(cls, dados):
         return cls(
